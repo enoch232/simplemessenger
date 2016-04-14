@@ -1,2 +1,11 @@
-<h1>Conversations#index</h1>
-<p>Find me in app/views/conversations/index.html.erb</p>
+<h1>My conversations</h1>
+<div>
+	<%= link_to "New Conversation", new_conversation_path %>
+
+</div>
+
+<% @conversations.each do |conversation| %>
+<br>
+Message to <%= User.find(conversation.receiver_id).email %>
+</br>
+<% end %>

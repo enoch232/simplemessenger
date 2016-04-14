@@ -1,1 +1,6 @@
 <h1>New Conversation</h1>
+<%= form_for(:conversation, url: conversations_path) do |f| %>
+	<%= f.label "Receiver Email" %>
+	<%= email_field_tag :receiver_email %>
+	<%= f.submit %>
+<% end %>
