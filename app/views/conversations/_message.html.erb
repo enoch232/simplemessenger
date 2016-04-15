@@ -1,0 +1,6 @@
+<%= form_for(:conversations, url: conversations_message_path) do |f| %>
+	<%= f.label "Message:" %>
+	<%= f.text_area :text %>
+	<%= f.submit "Send" %>
+	<%= f.hidden_field :conversation_id, :value => @conversation.id %>
+<% end %>

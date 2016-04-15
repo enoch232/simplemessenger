@@ -37,6 +37,11 @@ class ConversationsController < ApplicationController
   def show
   	@conversation = Conversation.find(params[:id])
   end
+  def message
+  	@conversation = Conversation.find(params[:conversations][:conversation_id])
+  	@conversation.messages.create!(user_id: current_user.id, text: params[:conversations][:text])
+	redirect_to @conversation
+  end
 
   private
   def conversation_params

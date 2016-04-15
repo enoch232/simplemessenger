@@ -1,5 +1,7 @@
 <h1>Show</h1>
 <% @conversation.messages.each do |message| %>
 <hr>
-<%= message.text %>
+<%= User.find(message.user_id).email%>- <%= message.text %>
+
 <% end %>
+<%= render 'conversations/message', conversation: @conversation %>
