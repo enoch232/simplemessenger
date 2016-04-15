@@ -14,14 +14,21 @@ class ConversationsController < ApplicationController
   	
   	
   	if receiver
-  		@conversation.receiver_id = receiver.id
-	  	@conversation.sender_id = current_user.id
-	  	if @conversation.save
-	  		@conversation.messages.create!(text: params[:message])
-	  		redirect_to root_path
-	  	else
-	  		render :new
-	  	end
+  		if Conversation.all.where('(sender_id=? and receiver_id = ?) || (sender_id=? and receiver_id=?)',current_user,receiver ,receiver, current_user).blank?
+
+	  		@conversation.receiver_id = receiver.id
+		  	@conversation.sender_id = current_user.id
+		  	if @conversation.save
+		  		@conversation.messages.create!(user_id: current_user.id, text: params[:message])
+		  		redirect_to root_path
+		  	else
+		  		render :new
+		  	end
+		else
+			@conversation = Conversation.all.where('(sender_id=? and receiver_id = ?) || (sender_id=? and receiver_id=?)',current_user,receiver ,receiver, current_user).first
+			@conversation.messages.create!(user_id: current_user.id, text: params[:message])
+			redirect_to @conversation
+		end
 	else
 
 		render :new , notice: "There is no user"

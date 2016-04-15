@@ -7,7 +7,7 @@
 <% @conversations.each do |conversation| %>
 <br>
 <div>
-<%= link_to "Message to " + User.find(conversation.receiver_id).email, conversation_path(conversation) %>
+<%= link_to "Message to " + User.find(conversation.receiver_id).email + " "+ User.find(conversation.sender_id).email, conversation_path(conversation) %>
 </div>
 </br>
 <% end %>
