@@ -6,6 +6,8 @@
 
 <% @conversations.each do |conversation| %>
 <br>
-Message to <%= User.find(conversation.receiver_id).email %>
+<div>
+<%= link_to "Message to " + User.find(conversation.receiver_id).email, conversation_path(conversation) %>
+</div>
 </br>
 <% end %>

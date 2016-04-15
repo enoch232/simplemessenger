@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :messages
   
-  resources :conversations
+  resources :conversations do
+    resources :messages
+  end
+
   root 'conversations#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
