@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
 	def new
 	end
 	def create
-		
 		@conversation = Conversation.find()
 	end
 	private

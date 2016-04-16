@@ -1,0 +1,9 @@
+
+$('.message-holder').empty();
+
+$('.message-holder').append("<%= j render 'message_display', message: @message %>");
+$('.new-message-field').val("");
+
+document.getElementById("message-focus").focus();
+
+$('.new-message-field').focus();

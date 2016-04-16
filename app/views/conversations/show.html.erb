@@ -1,7 +1,20 @@
 <h1>Show</h1>
-<% @conversation.messages.each do |message| %>
-<hr>
-<%= User.find(message.user_id).email%>- <%= message.text %>
-
-<% end %>
+<div class ="message-holder" style = "height:20rem;width:30rem;overflow:auto">
+	<% @conversation.messages.each do |message| %>
+	<%= render 'message_display', message: message %>
+	<% end %>
+	<div id = "message-focus"></div>
+</div>
 <%= render 'conversations/message', conversation: @conversation %>
+<script>
+$(document).ready(function(){
+	setInterval(updatemessage,3000);
+});
+function updatemessage(){
+	
+}
+
+
+
+
+</script>
