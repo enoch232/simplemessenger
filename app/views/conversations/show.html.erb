@@ -11,17 +11,12 @@ Message Count <%= @conversation.message_count %><br>
 <%= render 'conversations/message', conversation: @conversation %>
 <script>
 $(document).ready(function(){
-	setTimeout(poll,3000);
+	setTimeout(poll,6000);
 })
 function poll(){
-	setTimeout(poll,3000);
 	
-	$.getScript('/conversations/<%= @conversation.id %>?id=<%= @conversation.id %>&after=<%= @conversation.messages.last.created_at.to_i-3 %>&remote=true');
+	
+	$.getScript('/conversations/<%= @conversation.id %>?id=<%= @conversation.id %>&remote=true');
+	setTimeout(poll,6000);
 }
-
-
-
-
-
-
 </script>

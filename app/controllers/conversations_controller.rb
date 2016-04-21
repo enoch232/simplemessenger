@@ -40,7 +40,7 @@ class ConversationsController < ApplicationController
   def show
 
   	@conversation = Conversation.find(params[:id])
-    @newmessage = @conversation.messages.where("conversation_id = ? and created_at > ?", params[:id], Time.at(params[:after].to_i + 1))
+    @newmessage = @conversation.messages.where("conversation_id = ?", params[:id])
 
     respond_to do |format|
       format.js { render action: 'createmessage.js.erb' }

@@ -1,5 +1,4 @@
-console.log("<%= @newmessage.last.text %>");
-	console.log("<%= $same %>");
+//if the message is same as last time, dont post agiain.
 <% if @newmessage && @newmessage.last.text != $same %>
 	$('.message-holder').append("<%= j render 'message_display', message: @newmessage.last %>");
 	console.log("new messagepost!");
