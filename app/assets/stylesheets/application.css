@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+.conversation-holder{
+	box-shadow:10px 10px 10px 10px black;
+	min-height: 30rem;
+	width:30rem;
+	margin: 0 auto;
+	background-color: #bdceec;
+	color:#595c7b;
+}
+a{
+	text-decoration: none;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+.sendButton{
+	height:2rem;
+	width:12rem;
+	font-size: 1.3rem;
+	color:#595c7b;
+	background-color: #e0d3e7;
+	border-radius: 1rem;
+}
+.initialTextArea{
+	font-size: 1.2rem;
+
+}
+textarea{
+	resize:none;
+}
+.newConversation{
+	box-shadow:10px 10px 10px 10px black;
+	min-height: 30rem;
+	width:30rem;
+	margin: 0 auto;
+	background-color: #bdceec;
+	color:#595c7b;
+	position:relative;
+}

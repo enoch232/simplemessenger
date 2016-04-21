@@ -1,13 +1,16 @@
-<h1>My conversations</h1>
-<div>
-	<%= link_to "New Conversation", new_conversation_path %>
+<div class = "conversation-holder">
 
-</div>
+	<h1>My conversations</h1>
+	<div>
+		<%= link_to "New Conversation", new_conversation_path %>
 
-<% @conversations.each do |conversation| %>
-<br>
-<div>
-<%= link_to "Message to " + User.find(conversation.receiver_id).email + " "+ User.find(conversation.sender_id).email, conversation_path(conversation) %>
+	</div>
+
+	<% @conversations.each do |conversation| %>
+	<br>
+	<div>
+	<%= link_to "Message to " + User.find(conversation.receiver_id).email + " "+ User.find(conversation.sender_id).email, conversation_path(conversation) %>
+	</div>
+	</br>
+	<% end %>
 </div>
-</br>
-<% end %>

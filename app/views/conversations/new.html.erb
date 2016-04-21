@@ -1,12 +1,15 @@
-<h1>New Conversation</h1>
-<%= form_for(:conversation, url: conversations_path) do |f| %>
-	<%= f.label "Receiver Email" %>
-	<br>
-	<%= email_field_tag :receiver_email %>
-	<br>
-	<%= f.label "Message" %>
-	<br>
-	<%= text_area_tag :message %>
-	<br>
-	<%= f.submit "Send Message" %>
-<% end %>
+<div style  = "text-align:center;display:inline-block">
+	<div class= "newConversation">
+	<%= form_for(:conversation, url: conversations_path) do |f| %>
+		<%= f.label "Receiver Email" %>
+		<br>
+		<%= email_field_tag :receiver_email %>
+		<br>
+		<%= f.label "Message" %>
+		<br>
+		<%= text_area_tag :message%>
+		<br>
+		<%= f.submit "Send Message", class: "sendButton" %>
+	<% end %>
+	</div>
+</div>
