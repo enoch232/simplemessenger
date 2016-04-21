@@ -1,5 +1,8 @@
 <h1>Show</h1>
+
+Message Count <%= @conversation.message_count %><br>
 <div class ="message-holder" style = "height:20rem;width:30rem;overflow:auto">
+
 	<% @conversation.messages.each do |message| %>
 	<%= render 'message_display', message: message %>
 	<% end %>
@@ -8,11 +11,15 @@
 <%= render 'conversations/message', conversation: @conversation %>
 <script>
 $(document).ready(function(){
-	setInterval(updatemessage,3000);
-});
-function updatemessage(){
+	setTimeout(poll,3000);
+})
+function poll(){
+	setTimeout(poll,3000);
 	
+	$.getScript('/conversations/<%= @conversation.id %>?id=<%= @conversation.id %>&after=<%= @conversation.messages.last.created_at.to_i-3 %>&remote=true');
 }
+
+
 
 
 

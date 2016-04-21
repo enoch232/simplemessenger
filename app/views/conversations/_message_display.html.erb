@@ -1,5 +1,4 @@
 <%= div_for message do %>
 <hr>
-
 <div><%= User.find(message.user_id).email%>- <%= message.text %></div>
 <% end %>

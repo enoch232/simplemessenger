@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-
+  
 
   root 'conversations#index'
   post 'conversations/message', to: 'conversations#message'
